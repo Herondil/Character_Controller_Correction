@@ -11,6 +11,8 @@ public class AgentControler : MonoBehaviour
     public Transform[] PatrolsPoints;
     public int currentIndex;
 
+    public float AnticipationDistance;
+
     private void Awake()
     {
         TryGetComponent<NavMeshAgent>(out NMA);
@@ -20,7 +22,7 @@ public class AgentControler : MonoBehaviour
     void Update()
     {
        
-       if(NMA.remainingDistance == 0f)
+       if(NMA.remainingDistance <= AnticipationDistance)
         {
             //Debug.Log("Arrivé !");
             //changer la destination
